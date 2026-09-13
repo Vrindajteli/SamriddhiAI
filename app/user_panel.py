@@ -501,45 +501,6 @@ def render_chat_tab(customer_id):
             height=740,
         )
 
-    """Open the multilingual chatbot in a new tab."""
-    st.subheader("Chat with us")
-    st.caption(
-        "Ask about balance, loans, EMI, KYC, or anything else - in your own language."
-    )
-
-    url = _chatbot_url_for(customer_id)
-
-    st.markdown(
-        f'''
-        <div style="
-            background:#FFFFFF;
-            border:1px solid #E6E0D2;
-            border-radius:8px;
-            padding:28px;
-            text-align:center;
-            margin-top:20px;
-        ">
-            <div style="font-size:17px; color:#16202E; margin-bottom:14px;">
-                Our assistant is ready. Click below to start a conversation.
-            </div>
-            <a href="{url}" target="_blank" rel="noopener noreferrer" style="
-                display:inline-block;
-                padding:14px 32px;
-                background:#2A7F6F;
-                color:#FFFFFF !important;
-                border-radius:6px;
-                font-weight:600;
-                font-size:16px;
-                text-decoration:none;
-                letter-spacing:0.02em;
-            ">Open Chatbot</a>
-            <div style="font-size:13px; color:#5B6675; margin-top:16px;">
-                The chatbot opens in a new tab so you can keep this page open.
-            </div>
-        </div>
-        ''',
-        unsafe_allow_html=True,
-    )
 
 # ------------------------------------------------------------------
 # Main
