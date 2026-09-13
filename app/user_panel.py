@@ -448,10 +448,7 @@ def render_chat_tab(customer_id):
     )
 
     # Cloud chatbot URL (deployed). Local uses 127.0.0.1:8503.
-    if _is_cloud():
-        url = f"https://samriddhiai-ykdcvwhe7sheeghqrdgr5i.streamlit.app/?customer_id={customer_id}"
-    else:
-        url = f"http://localhost:8503/?customer_id={customer_id}"
+    url = f"https://samriddhiai-ykdcvwhe7sheeghqrdgr5i.streamlit.app/?customer_id={customer_id}"
 
     if _is_cloud():
         # Cloud: iframe is blocked by X-Frame-Options, so use a button.
