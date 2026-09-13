@@ -72,9 +72,9 @@ CATEGORY_LABELS = {
 def _chatbot_url_for(customer_id):
     """Return the chatbot URL — cloud in production, localhost in local dev."""
     if _is_cloud():
-        base = "https://<YOUR-CHATBOT-APP>.streamlit.app"   # set after deploy
+        base = "https://samriddhiai-ykdcvwhe7sheeghqrdgr5i.streamlit.app"
     else:
-        base = "http://127.0.0.1:8503"
+        base = "http://localhost:8503"
     return f"{base}/?customer_id={customer_id}"
 
 # ------------------------------------------------------------------
