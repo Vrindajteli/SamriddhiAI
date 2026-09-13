@@ -442,30 +442,45 @@ def render_for_you(bundle, row, stress_row):
 
 
 def render_chat_tab(customer_id):
-    """Embed the multilingual chatbot in an iframe, with a fallback link."""
+    """Open the multilingual chatbot in a new tab."""
     st.subheader("Chat with us")
     st.caption(
         "Ask about balance, loans, EMI, KYC, or anything else - in your own language."
     )
 
-    try:
-        import streamlit.components.v1 as components
-        components.html(
-            f"""
-            <iframe
-                src="{_chatbot_url_for(customer_id)}"
-                width="100%"
-                height="720"
-                style="border:1px solid #E6E0D2; border-radius:8px; background:#FFFFFF;"
-                allow="microphone">
-            </iframe>
-            """,
-            height=740,
-            scrolling=True,
-        )
-    except Exception as e:
-        st.warning(f"Could not embed the chatbot inline: {e}")
+    url = _chatbot_url_for(customer_id)
 
+    st.markdown(
+        f'''
+        <div style="
+            background:#FFFFFF;
+            border:1px solid #E6E0D2;
+            border-radius:8px;
+            padding:28px;
+            text-align:center;
+            margin-top:20px;
+        ">
+            <div style="font-size:17px; color:#16202E; margin-bottom:14px;">
+                Our assistant is ready. Click below to start a conversation.
+            </div>
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="
+                display:inline-block;
+                padding:14px 32px;
+                background:#2A7F6F;
+                color:#FFFFFF !important;
+                border-radius:6px;
+                font-weight:600;
+                font-size:16px;
+                text-decoration:none;
+                letter-spacing:0.02em;
+            ">Open Chatbot</a>
+            <div style="font-size:13px; color:#5B6675; margin-top:16px;">
+                The chatbot opens in a new tab so you can keep this page open.
+            </div>
+        </div>
+        ''',
+        unsafe_allow_html=True,
+    )
 
 # ------------------------------------------------------------------
 # Main
