@@ -8,6 +8,7 @@ Run from SamriddhiAI/ root:
 from pathlib import Path
 import sys
 import pandas as pd
+from sklearn import base
 import streamlit as st
 import altair as alt
 
@@ -71,10 +72,7 @@ CATEGORY_LABELS = {
 
 def _chatbot_url_for(customer_id):
     """Return the chatbot URL — cloud in production, localhost in local dev."""
-    if _is_cloud():
-        base = "https://samriddhiai-ykdcvwhe7sheeghqrdgr5i.streamlit.app"
-    else:
-        base = "http://localhost:8503"
+    url = f"https://samriddhiai-ykdcvwhe7sheeghqrdgr5i.streamlit.app/?customer_id={customer_id}"
     return f"{base}/?customer_id={customer_id}"
 
 # ------------------------------------------------------------------
